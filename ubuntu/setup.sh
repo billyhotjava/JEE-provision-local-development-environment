@@ -105,6 +105,12 @@ sudo tar -xzf $INTELIJ_IDEA_VERSION.tar.gz
 sudo rm /opt/$INTELIJ_IDEA_VERSION.tar.gz
 echo "Installed IntelliJ IDEA"
 
+echo "Installing Karaf"
+cd /opt/ && sudo wget http://apache.mediamirrors.org/karaf/$KARAF_VERSION/apache-karaf-$KARAF_VERSION.tar.gz
+sudo tar -zxvf /opt/apache-karaf-$KARAF_VERSION.tar.gz
+sudo rm /opt/apache-karaf-$KARAF_VERSION.tar.gz
+echo "Installed Karaf"
+ 
 # Tomcat
 echo "Installing Tomcat"
 cd /opt/ && sudo wget http://supergsego.com/apache/tomcat/tomcat-8/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
