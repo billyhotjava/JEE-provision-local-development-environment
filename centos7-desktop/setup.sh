@@ -6,7 +6,7 @@ readonly TOMCAT_VERSION=8.0.45
 readonly MAVEN_VERSION=3.3.9
 readonly SOAPUI_VERSION=5.3.0
 readonly ECLIPSE_VERSION=eclipse-jee-oxygen-R-linux-gtk-x86_64
-readonly INTELIJ_IDEA_VERSION=ideaIC-2017.1.3
+readonly INTELIJ_IDEA_VERSION=ideaIC-2017.2.1
 
 # Pre installation
 echo "Started Pre installation"
@@ -121,28 +121,7 @@ sudo rm /opt/apache-tomcat-$TOMCAT_VERSION.tar.gz
 docker pull tomcat:alpine
 echo "Installed Tomcat"
 
-# Oracle XE
-echo "Installing Oracle XE"
-docker stop local-oracle
-docker run --name local-oracle -d -p 49160:22 -p 1521:1521 wnameless/oracle-xe-11g
-docker stop local-oracle
-sudo tar -xvf /vagrant/oracle.tar -C /opt/shortcuts/
-echo "Installed Oracle XE"
-
-# IBM Websphere MQ 
-echo "Installing IBM Websphere MQ"
-sudo tar -xvf /vagrant/mq.tar -C /opt/shortcuts/
-echo "Installed IBM Websphere MQ"
-
-# IBM MQ Explorer
-#echo "Installing IBM MQ Explorer"
-#sudo mkdir /opt/MQ_Explorer
-#sudo tar -zxvf /vagrant/ms0t_mqexplorer_9001_linux_x86_64.tar.gz -C /opt/MQ_Explorer && cd /opt/MQ_Explorer
-#sudo sed -i 's/LICENSE_ACCEPTED=FALSE/LICENSE_ACCEPTED=TRUE/g' silent_install.resp 
-#sudo ./Setup.bin -f silent_install.resp
-#cd .. && sudo rm -Rf MQ_Explorer
-#echo "Installed IBM MQ Explorer"
-
+ 
 # Post installation
 echo "Started Post installation"
 sudo systemctl start httpd.service
