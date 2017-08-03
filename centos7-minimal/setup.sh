@@ -56,18 +56,6 @@ sudo rm /opt/apache-tomcat-$TOMCAT_VERSION.tar.gz
 docker pull tomcat:alpine
 echo "Installed Tomcat"
 
-# Oracle XE
-echo "Installing Oracle XE"
-docker stop local-oracle
-docker run --name local-oracle -d -p 49160:22 -p 1521:1521 wnameless/oracle-xe-11g
-docker stop local-oracle
-sudo tar -xvf /vagrant/oracle.tar -C /opt/shortcuts/
-echo "Installed Oracle XE"
-
-# IBM Websphere MQ 
-echo "Installing IBM Websphere MQ"
-sudo tar -xvf /vagrant/mq.tar -C /opt/shortcuts/
-echo "Installed IBM Websphere MQ"
 
 # Post installation
 echo "Started Post installation"
